@@ -21,11 +21,14 @@ const Home = () => {
   }, [address, contract]);
 
   return (
-    <DisplayCampaigns 
-      title="All Campaigns"
-      isLoading={isLoading}
-      campaigns={campaigns}
-    />
+    <><div class="flex flex-col mb-10">
+      <h1 className='text-white flex-auto text-xl font-semibold text-center'>Welcome to DAprOd</h1>
+      <p className='text-white text-center'>Be the producer of what you want to see</p>
+    </div>
+    <DisplayCampaigns
+        title="All Campaigns"
+        isLoading={isLoading}
+        campaigns={campaigns} /></>
   )
 }
 
