@@ -7,6 +7,7 @@ import { CountBox, CustomButton, Loader } from '../components';
 import { calculateBarPercentage, daysLeft } from '../utils';
 import { thirdweb } from '../assets';
 
+
 const CampaignDetails = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
