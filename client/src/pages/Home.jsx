@@ -34,7 +34,7 @@ const Home = () => {
           <center>
             <iframe
               width="100%"
-              height="300px"
+              height="500px"
               src="https://www.youtube.com/embed/cO3_rnP4UYg"
               title="YouTube video player"
               frameborder="0"
@@ -52,11 +52,11 @@ const Home = () => {
         <p class="text-white text-center">Founders</p>
         <div class="flex flex-wrap justify-center m-0 md:w-full text-white">
           <div class="w-full lg:w-1/2 p-2">
-            <div class="mt-5 mx-5">
+            <div class="mt-5 mx-5 center">
               <img
-                src="./src/assets/JB_300x300.png"
+                src="https://i.ibb.co/vmVsZ3F/JB-300x300.jpg"
                 alt="JB"
-                class="rounded-bl-3xl rounded-tr-3xl"
+                class="rounded-bl-3xl rounded-tr-3xl mx-auto"
               />{" "}
               <br />
               <h2>Jean-Baptiste</h2>
@@ -66,9 +66,9 @@ const Home = () => {
           <div class="w-full lg:w-1/2 p-2">
             <div class="mt-5 mx-5">
               <img
-                src="./src/assets/adyl-pfp.png"
+                src="https://i.ibb.co/vhLYWmg/adyl-pfp.png"
                 alt="Adyl"
-                class="rounded-bl-3xl rounded-tr-3xl"
+                class="rounded-bl-3xl rounded-tr-3xl mx-auto"
               />
               <br />
               <h2>Adyl ITTO</h2>
