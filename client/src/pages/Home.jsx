@@ -22,17 +22,39 @@ const Home = () => {
 
   return (
     <><div class="flex flex-col mb-10">
-      <h1 className='text-white flex-auto text-xl font-semibold text-center'>Welcome to DAprOd</h1>
+      <h1 className='text-white flex-auto text-xl font-semibold text-center'>Welcome to DAprOd (NOTICE: This a Test version live on Goerli-testnet)</h1>
       <p className='text-white text-center'>Be the producer of what you want to see</p>
+      <p className='text-white text-center'>What is DAprOd project?</p>
       <div className='mt-5'><center><iframe width="460" height="315" src="https://www.youtube.com/embed/cO3_rnP4UYg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></center></div> 
     </div>
-    <div class="flex flex-col m-10">
-      <h1 className='text-white flex-auto text-xl font-semibold text-center'>Team DAprOd</h1>
-      <p className='text-white text-center'>Our founders</p>
-    </div>
-    <div class="flex flex-col col-6 mb-10">
 
+    <div class="flex flex-col m-10">
+  <h1 class='text-white flex-auto text-xl font-semibold text-center'>Team DAprOd</h1>
+  <p class='text-white text-center'>Founders</p> 
+
+  <div class="flex flex-wrap justify-center m-10 text-white">
+  <div class="w-full lg:w-1/2 p-2">
+    <div class="mt-5 mx-5">
+      <img src="./src/assets/JB_300x300.png" alt="" class="rounded-bl-3xl rounded-tr-3xl" /> <br />
+      <h2>Jean-Baptiste</h2>
+      <p>Bio</p>
     </div>
+  </div>
+  <div class="w-full lg:w-1/2 p-2">
+    <div class="mt-5 mx-5">
+      <img src="./src/assets/adyl-pfp.png" alt="" class="rounded-bl-3xl rounded-tr-3xl" />
+<br />
+      <h2>Adyl ITTO</h2>
+      <p>Adyl is a self-taught entrepreneur in the events, cinema, and music industries. He has organized successful private events for famous personalities, including Andrea Bocelli, and realized the importance of digital marketing. He combined his passion for cinema and art with blockchain and artificial intelligence to create the first French-speaking decentralized autonomous organization for cultural programming, aimed at bringing transparency to investors and sovereignty to actors and users.</p>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+<h3 class='text-white mb-5'>NOTICE:The following are project exemple, some are actual funding campaign some are fictive</h3>
+   
 
     <DisplayCampaigns
         title="All Campaigns"
