@@ -23,13 +23,12 @@ const Home = () => {
   return (
     <>
       <div class="flex flex-col mb-10">
-        <h1 class="text-white flex-auto text-xl font-semibold text-center">
-          Welcome to DAprOd (NOTICE: This a Test version live on Goerli-testnet)
+        <h1 class="text-white flex-auto text-5xl font-semibold text-center">
+          Welcome to DAprOd Project
         </h1>
         <p class="text-white text-center">
-          Be the producer of what you want to see
+        DaProd: Monetizing Unexploited Cultural Content.
         </p>
-        <p class="text-white text-center">What is DAprOd project?</p>
         <div class="mt-5">
           <center>
             <iframe
@@ -47,9 +46,9 @@ const Home = () => {
 
       <div class="flex flex-col m-0 mb-10">
         <h1 class="text-white flex-auto text-xl font-semibold text-center">
-          Team DAprOd
+           DAprOd Team
         </h1>
-        <p class="text-white text-center">Founders</p>
+        <p class="text-white text-center">Synergy of passions</p>
         <div class="flex flex-wrap justify-center m-0 md:w-full text-white">
           <div class="w-full lg:w-1/2 p-2">
             <div class="mt-5 mx-5 center">
@@ -59,8 +58,15 @@ const Home = () => {
                 class="rounded-bl-3xl rounded-tr-3xl mx-auto"
               />{" "}
               <br />
-              <h2>Jean-Baptiste</h2>
-              <p>Bio</p>
+              <h2 class='font-semibold text-center'>Jean-Baptiste - Film producer</h2>
+              <p>
+                Jean-Baptiste is a seasoned entertainment industry professional
+                with over 15 years of experience. He started with his own
+                company, Linkyourart, and has since worked in film financing,
+                production, and sales & acquisitions. He currently develops a
+                range of projects with big industry players, including films,
+                TV, and video games.
+              </p>
             </div>
           </div>
           <div class="w-full lg:w-1/2 p-2">
@@ -71,27 +77,20 @@ const Home = () => {
                 class="rounded-bl-3xl rounded-tr-3xl mx-auto"
               />
               <br />
-              <h2>Adyl ITTO</h2>
+              <h2 class='font-semibold text-center'>Adyl ITTO - Developper</h2>
               <p>
-                Adyl is a self-taught entrepreneur in the events, cinema, and
-                music industries. He has organized successful private events for
-                famous personalities, including Andrea Bocelli, and realized the
-                importance of digital marketing. He combined his passion for
-                cinema and art with blockchain and artificial intelligence to
-                create the first French-speaking decentralized autonomous
-                organization for cultural programming, aimed at bringing
-                transparency to investors and sovereignty to actors and users.
+                Adyl is a self-taught blockchain developer and entrepreneur who
+                focuses on events, cinema, and music. With a keen interest in
+                digital marketing, he combined his passion for cinema and art
+                with blockchain and artificial intelligence to create the first
+                DAO-decentralized autonomous organization for cultural
+                programming. The initiative aims to provide transparency to
+                investors and sovereignty to actors and users.{" "}
               </p>
             </div>
           </div>
         </div>
       </div>
-
-      <h3 class="text-white mb-5">
-        NOTICE:The following are project exemple, some are actual funding
-        campaign some are fictive
-      </h3>
-
       <DisplayCampaigns
         title="All Campaigns"
         isLoading={isLoading}
