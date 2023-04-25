@@ -45,10 +45,10 @@ const Home = () => {
       </div>
 
       <div class="flex flex-col m-0 mb-10">
-        <h1 class="text-white flex-auto text-xl font-semibold text-center">
+        <h1 class="text-white flex-auto text-3xl font-semibold text-center">
            DAprOd Team
         </h1>
-        <p class="text-white text-center">Synergy of passions</p>
+        <a href="https://discord.com/invite/UT42mYU8Zy" class="text-white underline text-center">Like the project? Join Devs Discord Channel</a>
         <div class="flex flex-wrap justify-center m-0 md:w-full text-white">
           <div class="w-full lg:w-1/2 p-2">
             <div class="mt-5 mx-5 center">
