@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "./node_modules/.bin/vite build",
+    "build": "yarn install && ./node_modules/.bin/vite build",
     "preview": "vite preview",
     "deploy": "yarn build && npx thirdweb@latest upload dist"
   },
