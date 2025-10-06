@@ -4,6 +4,11 @@ import { defineConfig } from "vite";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    alias: {
+      "@safe-globalThis/safe-ethers-adapters": "@safe-global/safe-ethers-adapters",
+    },
+  },
   define: {
     global: "globalThis",
     "process.env": {},
