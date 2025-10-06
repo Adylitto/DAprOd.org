@@ -20,7 +20,8 @@
     "react-icons": "^4.8.0",
     "react-router-dom": "^6.8.1",
     "react-toggle-dark-mode": "^1.1.1",
-    "@safe-global/safe-ethers-adapters": "0.1.0-alpha.19"
+    "@safe-global/safe-ethers-adapters": "0.1.0-alpha.19",
+    "@safe-global/safe-core-sdk": "^3.3.5"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^2",

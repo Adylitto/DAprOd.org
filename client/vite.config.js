@@ -7,6 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@safe-globalThis/safe-ethers-adapters": "@safe-global/safe-ethers-adapters",
+      "@safe-globalThis/safe-core-sdk": "@safe-global/safe-core-sdk",
     },
   },
   define: {
@@ -15,7 +16,7 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      external: ["@safe-global/safe-ethers-adapters"],
+      external: ["@safe-global/safe-ethers-adapters", "@safe-global/safe-core-sdk"],
     },
   },
 });
