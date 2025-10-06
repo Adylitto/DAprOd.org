@@ -7,6 +7,8 @@ import { money } from '../assets';
 import { CustomButton, FormField, Loader } from '../components';
 import { checkIfImage } from '../utils';
 
+import toast from 'react-hot-toast';
+
 const CreateCampaign = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -17,7 +19,8 @@ const CreateCampaign = () => {
     description: '',
     target: '', 
     deadline: '',
-    image: ''
+    image: '',
+    galleryImages: ''
   });
 
   const handleFormFieldChange = (fieldName, e) => {
@@ -30,11 +33,12 @@ const CreateCampaign = () => {
     checkIfImage(form.image, async (exists) => {
       if(exists) {
         setIsLoading(true)
-        await createCampaign({ ...form, target: ethers.utils.parseUnits(form.target, 18)})
+        await createCampaign({ ...form, target: ethers.utils.parseUnits(form.target, 18), galleryImages: form.galleryImages.split(',') })
         setIsLoading(false);
         navigate('/');
+        toast.success('Campaign created successfully!');
       } else {
-        alert('Provide valid image URL')
+        toast.error('Provide valid image URL')
         setForm({ ...form, image: '' });
       }
     })
@@ -101,6 +105,14 @@ const CreateCampaign = () => {
             inputType="url"
             value={form.image}
             handleChange={(e) => handleFormFieldChange('image', e)}
+          />
+
+        <FormField 
+            labelName="Gallery images (comma-separated URLs)"
+            placeholder="Place image URLs of your campaign gallery"
+            inputType="url"
+            value={form.galleryImages}
+            handleChange={(e) => handleFormFieldChange('galleryImages', e)}
           />
 
           <div className="flex justify-center items-center mt-[40px]">

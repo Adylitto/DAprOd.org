@@ -24,6 +24,7 @@ export const StateContextProvider = ({ children }) => {
           form.target,
           new Date(form.deadline).getTime(), // deadline,
           form.image,
+          form.galleryImages,
         ],
       });
 
@@ -44,6 +45,7 @@ export const StateContextProvider = ({ children }) => {
       deadline: campaign.deadline.toNumber(),
       amountCollected: ethers.utils.formatEther(campaign.amountCollected.toString()),
       image: campaign.image,
+      galleryImages: campaign.galleryImages,
       pId: i
     }));
 

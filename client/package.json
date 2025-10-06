@@ -11,16 +11,17 @@
   "dependencies": {
     "@thirdweb-dev/react": "^3.9.0",
     "@thirdweb-dev/sdk": "^3.9.0",
-    "ethers": "^5.7.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^4.8.0",
-    "react-router-dom": "^6.8.1"
-  },
-  "devDependencies": {
     "@vitejs/plugin-react": "^2",
     "autoprefixer": "^10.4.13",
+    "ethers": "^5.7.2",
+    "framer-motion": "^10.16.4",
     "postcss": "^8.4.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.6.0",
+    "react-icons": "^4.8.0",
+    "react-router-dom": "^6.8.1",
+    "react-toggle-dark-mode": "^1.1.1",
     "tailwindcss": "^3.2.7",
     "vite": "^3"
   }
