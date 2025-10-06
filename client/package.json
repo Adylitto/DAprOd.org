@@ -4,10 +4,9 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm install && vite build",
     "preview": "vite preview",
-    "deploy": "yarn build && npx thirdweb@latest upload dist",
-    "preinstall": "npm install"
+    "deploy": "yarn build && npx thirdweb@latest upload dist"
   },
   "dependencies": {
     "@thirdweb-dev/react": "^3.9.0",
