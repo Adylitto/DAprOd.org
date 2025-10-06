@@ -21,7 +21,7 @@ contract CrowdFunding {
     function createCampaign(address _owner, string memory _title, string memory _description, uint256 _target, uint256 _deadline, string memory _image) public returns (uint256) {
         Campaign storage campaign = campaigns[numberOfCampaigns];
 
-        require(campaign.deadline < block.timestamp, "The deadline should be a date in the future.");
+        require(_deadline > block.timestamp, "The deadline should be a date in the future.");
 
         campaign.owner = _owner;
         campaign.title = _title;
@@ -44,11 +44,7 @@ contract CrowdFunding {
         campaign.donators.push(msg.sender);
         campaign.donations.push(amount);
 
-        (bool sent,) = payable(campaign.owner).call{value: amount}("");
-
-        if(sent) {
-            campaign.amountCollected = campaign.amountCollected + amount;
-        }
+        campaign.amountCollected = campaign.amountCollected + amount;
     }
 
     function getDonators(uint256 _id) view public returns (address[] memory, uint256[] memory) {
@@ -65,5 +61,34 @@ contract CrowdFunding {
         }
 
         return allCampaigns;
+    }
+
+    function payout(uint256 _id) public {
+        Campaign storage campaign = campaigns[_id];
+        require(campaign.owner == msg.sender, "You are not the owner of this campaign.");
+        require(block.timestamp > campaign.deadline, "The deadline has not passed yet.");
+        require(campaign.amountCollected >= campaign.target, "The campaign has not met its target.");
+
+        (bool sent,) = payable(campaign.owner).call{value: campaign.amountCollected}("");
+
+        if (sent) {
+            campaign.amountCollected = 0;
+        }
+    }
+
+    function refund(uint256 _id) public {
+        Campaign storage campaign = campaigns[_id];
+        require(block.timestamp > campaign.deadline, "The deadline has not passed yet.");
+        require(campaign.amountCollected < campaign.target, "The campaign has met its target.");
+
+        for (uint i = 0; i < campaign.donators.length; i++) {
+            if (campaign.donators[i] == msg.sender) {
+                (bool sent,) = payable(msg.sender).call{value: campaign.donations[i]}("");
+
+                if (sent) {
+                    campaign.donations[i] = 0;
+                }
+            }
+        }
     }
 }

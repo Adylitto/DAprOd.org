@@ -9,20 +9,23 @@ const StateContext = createContext();
 export const StateContextProvider = ({ children }) => {
   const { contract } = useContract('0x3b6c1E5Eca29DD72FFf3DA438555288B458D46F3');
   const { mutateAsync: createCampaign } = useContractWrite(contract, 'createCampaign');
+  const { mutateAsync: donateToCampaign } = useContractWrite(contract, 'donateToCampaign');
 
   const address = useAddress();
   const connect = useMetamask();
 
   const publishCampaign = async (form) => {
     try {
-      const data = await createCampaign([
-        address, // owner
-        form.title, // title
-        form.description, // description
-        form.target,
-        new Date(form.deadline).getTime(), // deadline,
-        form.image
-      ])
+      const data = await createCampaign({
+        args: [
+          address, // owner
+          form.title, // title
+          form.description, // description
+          form.target,
+          new Date(form.deadline).getTime(), // deadline,
+          form.image,
+        ],
+      });
 
       console.log("contract call success", data)
     } catch (error) {
@@ -56,8 +59,7 @@ export const StateContextProvider = ({ children }) => {
   }
 
   const donate = async (pId, amount) => {
-    const data = await contract.call('donateToCampaign', pId, { value: ethers.utils.parseEther(amount)});
-
+    const data = await donateToCampaign({ args: [pId], overrides: { value: ethers.utils.parseEther(amount)} });
     return data;
   }
 
@@ -77,6 +79,16 @@ export const StateContextProvider = ({ children }) => {
     return parsedDonations;
   }
 
+  const payout = async (pId) => {
+    const data = await contract.call('payout', pId);
+    return data;
+  }
+
+  const refund = async (pId) => {
+    const data = await contract.call('refund', pId);
+    return data;
+  }
+
 
   return (
     <StateContext.Provider
@@ -88,7 +100,9 @@ export const StateContextProvider = ({ children }) => {
         getCampaigns,
         getUserCampaigns,
         donate,
-        getDonations
+        getDonations,
+        payout,
+        refund
       }}
     >
       {children}

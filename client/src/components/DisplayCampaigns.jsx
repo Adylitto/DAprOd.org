@@ -14,10 +14,6 @@ const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
   return (
     <div>
       <h1 className="font-epilogue font-bold text-[28px] text-white text-left text-center">{title} ({campaigns.length})</h1>
-      <p class="text-white mb-5">
-        *NOTICE:The following are project exemple, some are actual funding
-        campaign some are fictive. This a Test version live on Goerli-testnet
-      </p>
 
       <div className="flex flex-wrap mt-[20px] gap-[26px]">
         {isLoading && (
@@ -26,7 +22,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
 
         {!isLoading && campaigns.length === 0 && (
           <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
-            You have not created any campigns yet
+            There are no campaigns to display.
           </p>
         )}
 

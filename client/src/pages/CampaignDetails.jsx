@@ -11,7 +11,7 @@ import { thirdweb } from '../assets';
 const CampaignDetails = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
-  const { donate, getDonations, contract, address } = useStateContext();
+  const { donate, getDonations, contract, address, payout, refund } = useStateContext();
 
   const [isLoading, setIsLoading] = useState(false);
   const [amount, setAmount] = useState('');
@@ -34,6 +34,20 @@ const CampaignDetails = () => {
 
     await donate(state.pId, amount); 
 
+    navigate('/')
+    setIsLoading(false);
+  }
+
+  const handlePayout = async () => {
+    setIsLoading(true);
+    await payout(state.pId);
+    navigate('/')
+    setIsLoading(false);
+  }
+
+  const handleRefund = async () => {
+    setIsLoading(true);
+    await refund(state.pId);
     navigate('/')
     setIsLoading(false);
   }
@@ -126,6 +140,27 @@ const CampaignDetails = () => {
                 styles="w-full bg-[#8c6dfd]"
                 handleClick={handleDonate}
               />
+
+              <div className="mt-[20px]">
+              {remainingDays < 0 && state.amountCollected >= state.target && (
+                <CustomButton 
+                  btnType="button"
+                  title="Payout Campaign"
+                  styles="w-full bg-[#8c6dfd]"
+                  handleClick={handlePayout}
+                />
+              )}
+              </div>
+              <div className="mt-[20px]">
+              {remainingDays < 0 && state.amountCollected < state.target && (
+                <CustomButton 
+                  btnType="button"
+                  title="Refund Campaign"
+                  styles="w-full bg-[#8c6dfd]"
+                  handleClick={handleRefund}
+                />
+              )}
+              </div>
             </div>
           </div>
         </div>
